@@ -1,0 +1,32 @@
+{% extends "base.njk" %}
+{% block titulo %}Habitaciones | Listado{% endblock %}
+{% block contenido %}
+    <h1>Listado de Habitaciones</h1>
+    <div class="container">
+        <div class="row">
+            {% for habitacion in habitaciones %}
+                {% if loop.index % 3 == 1 %}
+                    <div class="col-md-4">
+                    {% endif %}
+                    <div class="border rounded p-3 mb-3">
+                        <h4>
+                            Habitacion {{ habitacion.numero }}
+                        </h4>
+                        <p class="text-muted font-italic">
+                            Última limpieza: {{ habitacion.ultimaLimpieza | date('DD/MM/YYYY') }}
+                        </p>
+                        <a class="btn btn-primary" href="/habitaciones/{{ habitacion.id }}">Ver Ficha</a>
+                    </div>
+                    {% if loop.index % 3 == 0 or loop.last %}
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="col-md-4">
+                    <div class="border rounded p-3 mb-3">
+                        <p class="text-muted font-italic">No hay Habitaciones que mostrar.</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
