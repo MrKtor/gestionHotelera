@@ -1,0 +1,23 @@
+# Node.js
+node_modules/
+
+# Archivos generados por npm
+npm-debug.log
+*.log
+logs/
+*.pid
+*.seed
+*.pid.lock
+
+# Entorno de desarrollo
+.env
+
+# Dependencias específicas del IDE (por ejemplo, para Visual Studio Code)
+.vscode/
+
+# Archivos de construcción
+/build/
+
+# Configuraciones específicas del sistema operativo
+.DS_Store
+Thumbs.db
