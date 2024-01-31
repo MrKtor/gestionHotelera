@@ -1,22 +1,18 @@
 {% extends "base.njk" %}
-
 {% block titulo %}Habitación | Limpieza{% endblock %}
-
 {% block contenido %}
-
     <h1>Limpiezas de habitación {{ habitacion.numero }}</h1>
-    <a class="btn btn-primary mb-2" href="/limpiezas/nueva/{{ habitacion.id }}">Nueva limpieza</a>
-
+    {% if (session and session.usuario) %}
+        <a class="btn btn-primary mb-2" href="/limpiezas/nueva/{{ habitacion.id }}">Nueva limpieza</a>
+    {% endif %}
     {% for limpieza in limpiezas %}
-    <div class="border rounded p-3 mb-3">
-        <p>{{ limpieza.fechaHora | date('DD/MM/YYYY') }}</p>
-        {% if limpieza.observaciones %}
-            <p>{{ limpieza.observaciones }}</p>
-        {% else %}
-            <p>Sin observaciones.</p>
-        {% endif %}
-    </div>
+        <div class="border rounded p-3 mb-3">
+            <p>{{ limpieza.fechaHora | date('DD/MM/YYYY') }}</p>
+            {% if limpieza.observaciones %}
+                <p>{{ limpieza.observaciones }}</p>
+            {% else %}
+                <p>Sin observaciones.</p>
+            {% endif %}
+        </div>
     {% endfor %}
-
-
 {% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.njk" %}
+{% block titulo %}Habitación | Nueva{% endblock %}
+{% block contenido %}
+    <h1>Inserción de nueva habitación</h1>
+    {% if errores.general %}
+        <p class="alert alert-danger">{{ errores.general }}</p>
+    {% endif %}
+    <form action="/habitaciones/{{habitacion.id}}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="numero">Número:</label>
+            {% if errores.numero %}
+                <p class="alert alert-danger">{{ errores.numero }}</p>
+            {% endif %}
+            <input type="number" class="form-control" name="numero" placeholder="Número de la habitación..." value="{% if datos.numero %}{{ datos.numero }}{% else %}{{ habitacion.numero }}{% endif %}" />
+        </div>
+        <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            {% if errores.tipo %}
+                <p class="alert alert-danger">{{ errores.tipo }}</p>
+            {% endif %}
+            <select class="form-control" name="tipo">
+                <option value="individual" {% if datos.tipo == 'individual' %} selected {% endif %}>Individual</option>
+                <option value="doble" {% if datos.tipo == 'doble' %} selected {% endif %}>Doble</option>
+                <option value="familiar" {% if datos.tipo == 'familiar' %} selected {% endif %}>Familiar</option>
+                <option value="suite" {% if datos.tipo == 'suite' %} selected {% endif %}>Suite</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            {% if errores.precio %}
+                <p class="alert alert-danger">{{ errores.precio }}</p>
+            {% endif %}
+            <input type="text" class="form-control" name="precio" placeholder="Precio de la habitación..." value="{% if datos.precio %}{{ datos.precio }}{% else %}{{ habitacion.precio }}{% endif %}" />
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            {% if errores.descripcion %}
+                <p class="alert alert-danger">{{ errores.descripcion }}</p>
+            {% endif %}
+            <textarea class="form-control" name="descripcion" placeholder="Descripción de habitación...">{% if datos.descripcion %}{{ datos.descripcion }}{% else %}{{ habitacion.descripcion }}{% endif %}</textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="imagen">Imagen:</label>
+            <input type="file" class="form-control" name="imagen"></div>
+            <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+        </form>
+    {% endblock %}
