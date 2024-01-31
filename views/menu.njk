@@ -5,11 +5,9 @@
            <a class="btn btn-dark" href="/habitaciones/nueva">Nueva Habitación</a>
     {% endif %}
     &nbsp;&nbsp;
-    <li class="nav-item">
         {% if (session and session.usuario) %}
           <a a class="btn btn-dark" href="/auth/logout">Logout</a>
         {% else %}
           <a a class="btn btn-dark" href="/auth/login">Login</a>
         {% endif %}
-      </li>
 </div>
