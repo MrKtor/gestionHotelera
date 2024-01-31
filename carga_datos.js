@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Usuario = require(__dirname + "/models/usuario");
 
-mongoose.connect('mongodb://127.0.0.1:27017/hotel');
+mongoose.connect('mongodb://127.0.0.1:27017/hotel', { useNewUrlParser: true, useUnifiedTopology: true });
 
 //USUARIOS CARGADOS PARA EL EJERCICIO
 let usuarios = [
