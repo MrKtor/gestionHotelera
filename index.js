@@ -12,7 +12,7 @@ const habitacion = require(__dirname + "/routes/habitaciones");
 const limpieza = require(__dirname + "/routes/limpiezas");
 const auth = require(__dirname + '/routes/auth');
 
-mongoose.connect('mongodb://127.0.0.1:27017/hotel'); 
+mongoose.connect(process.env.DATABASE_URL); 
 
 let app = express();
 

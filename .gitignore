@@ -10,7 +10,7 @@ logs/
 *.pid.lock
 
 # Entorno de desarrollo
-.env
+# .env
 
 # Dependencias específicas del IDE (por ejemplo, para Visual Studio Code)
 .vscode/
