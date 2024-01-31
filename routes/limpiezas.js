@@ -2,7 +2,7 @@ const express = require("express");
 
 const Limpieza = require(__dirname + "/../models/limpieza.js");
 const Habitacion = require(__dirname + "/../models/habitacion.js");
-// const auth = require(__dirname + '/../utils/auth.js');
+const auth = require(__dirname + "/../utils/auth.js");
 
 const router = express.Router();
 
@@ -43,8 +43,8 @@ router.get("/nueva/:id", (req, res) => {
     res.render("limpiezas_nueva", { anyo, mes, dia, idHabitacion });
 });
 
-//POST limpieza idHabitación ,  auth.protegerRuta, 
-router.post("/:id", (req, res) => {
+//POST limpieza idHabitación
+router.post("/:id", auth.autenticacion, (req, res) => {
     let nuevaLimpieza = new Limpieza({
         idHabitacion: req.params.id,
         fechaHora: req.body.fecha,

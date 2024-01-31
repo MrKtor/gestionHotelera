@@ -1,7 +1,9 @@
 <div class="d-flex ml-auto">
     <a href="/habitaciones" class="btn btn-dark text-white text-decoration-none">Habitaciones</a>
     &nbsp;&nbsp;
-    <a class="btn btn-dark" href="/habitaciones/nueva">Nueva Habitación</a>
+    {% if (session and session.usuario) %}
+           <a class="btn btn-dark" href="/habitaciones/nueva">Nueva Habitación</a>
+    {% endif %}
     &nbsp;&nbsp;
     <li class="nav-item">
         {% if (session and session.usuario) %}
