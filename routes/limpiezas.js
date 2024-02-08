@@ -33,7 +33,7 @@ router.get("/:id", (req, res) => {
 });
 
 // Formulario de nueva limpieza
-router.get("/nueva/:id", (req, res) => {
+router.get("/nueva/:id", auth.autenticacion, (req, res) => {
     const fecha = new Date();
     const anyo = fecha.getFullYear();
     const mes = (fecha.getMonth() + 1).toString().padStart(2, "0");

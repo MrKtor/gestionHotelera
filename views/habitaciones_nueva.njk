@@ -30,7 +30,7 @@
             {% if errores.precio %}
                 <p class="alert alert-danger">{{ errores.precio }}</p>
             {% endif %}
-            <input type="text" class="form-control" name="precio" placeholder="Precio de la habitación..." value="{{ datos.precio}}"/>
+            <input type="number" class="form-control" name="precio" placeholder="Precio de la habitación..." value="{{ datos.precio}}"/>
         </div>
         <div class="form-group">
             <label for="descripcion">Descripción:</label>

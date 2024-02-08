@@ -54,7 +54,7 @@ app.use("/habitaciones", habitacion);
 app.use("/limpiezas", limpieza);
 
 app.get('/', (req, res) => {
-    res.redirect('/auth/login');
+    res.redirect('/habitaciones');
   });
 
 
